@@ -62,7 +62,7 @@
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>2.6.1</version>
+      <version>3.25.5</version>
       <scope>compile</scope>
     </dependency>
     
@@ -100,18 +100,18 @@
             <phase>generate-sources</phase>
             <configuration>
               <tasks>
-                <mkdir dir="target/generated" />
+                <mkdir dir="target/generated"/>
                 <path id="proto.path">
                   <fileset dir="src/main/protobuf">
-                    <include name="**/*.proto" />
+                    <include name="**/*.proto"/>
                   </fileset>
                 </path>
-                <pathconvert pathsep=" " property="proto.files" refid="proto.path" />
+                <pathconvert pathsep=" " property="proto.files" refid="proto.path"/>
                 <exec executable="protoc" failonerror="true">
-                  <arg value="--java_out=src/main/java" />
-                  <arg value="--proto_path=/usr/include" />
-                  <arg value="-I${project.basedir}/src/main/protobuf" />
-                  <arg line="${proto.files}" />
+                  <arg value="--java_out=src/main/java"/>
+                  <arg value="--proto_path=/usr/include"/>
+                  <arg value="-I${project.basedir}/src/main/protobuf"/>
+                  <arg line="${proto.files}"/>
                 </exec>
               </tasks>
             </configuration>
